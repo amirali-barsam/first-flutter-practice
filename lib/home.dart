@@ -338,7 +338,7 @@ class _PostList extends StatelessWidget {
             shrinkWrap: true,
             itemBuilder: (context, index) {
               final post = posts[index];
-              return _Post(post: post);
+              return Post(post: post);
             },
           ),
         ],
@@ -347,8 +347,8 @@ class _PostList extends StatelessWidget {
   }
 }
 
-class _Post extends StatelessWidget {
-  const _Post({super.key, required this.post});
+class Post extends StatelessWidget {
+  const Post({super.key, required this.post});
 
   final PostData post;
 
@@ -368,57 +368,70 @@ class _Post extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             child: Image.asset("img/posts/small/${post.imageFileName}"),
           ),
-          SizedBox(width: 16),
+          // SizedBox(width: 16),
           Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  post.caption,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xff376AED),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(8, 0, 4, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    post.caption,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xff376AED),
+                    ),
                   ),
-                ),
-                Text(
-                  post.title,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                    color: Color(0xff0D253C),
+                  Text(
+                    post.title,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.normal,
+                      color: Color(0xff0D253C),
+                    ),
                   ),
-                ),
-                SizedBox(height: 8),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Icon(Icons.thumb_up, size: 16, color: Color(0xff2D4379)),
-                    SizedBox(width: 4),
-                    Text(
-                      post.likes,
-                      style: TextStyle(fontSize: 12, color: Color(0xff2D4379)),
-                    ),
-                    SizedBox(width: 16),
-                    Icon(Icons.access_time, size: 16, color: Color(0xff2D4379)),
-                    SizedBox(width: 4),
-                    Text(
-                      post.time,
-                      style: TextStyle(fontSize: 12, color: Color(0xff2D4379)),
-                    ),
-                    SizedBox(width: 45),
-                    Icon(
-                      post.isBookmarked
-                          ? Icons.bookmark_added_rounded
-                          : Icons.bookmark_add_outlined,
-                      size: 18,
-                      color: Color(0xff2D4379),
-                    ),
-                    SizedBox(height: 16),
-                  ],
-                ),
-              ],
+                  SizedBox(height: 8),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(Icons.thumb_up, size: 16, color: Color(0xff2D4379)),
+                      SizedBox(width: 4),
+                      Text(
+                        post.likes,
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Color(0xff2D4379),
+                        ),
+                      ),
+                      SizedBox(width: 16),
+                      Icon(
+                        Icons.access_time,
+                        size: 16,
+                        color: Color(0xff2D4379),
+                      ),
+                      SizedBox(width: 4),
+                      Text(
+                        post.time,
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Color(0xff2D4379),
+                        ),
+                      ),
+                      SizedBox(width: 45),
+                      Icon(
+                        post.isBookmarked
+                            ? Icons.bookmark_added_rounded
+                            : Icons.bookmark_add_outlined,
+                        size: 18,
+                        color: Color(0xff2D4379),
+                      ),
+                      SizedBox(height: 16),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:test/article.dart';
 import 'package:test/home.dart';
+import 'package:test/profile.dart';
 import 'package:test/splash.dart';
 
 void main() {
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
           ),
         ).apply(fontFamily: 'Avenir'),
       ),
-      home: ArticleScreen(),
+      home: ProfileScreen(),
       // home: SplashScreen(),
       // home: Stack(
       //   children: [
