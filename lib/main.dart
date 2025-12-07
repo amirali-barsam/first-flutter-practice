@@ -1,6 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:test/article.dart';
 import 'package:test/home.dart';
 import 'package:test/splash.dart';
 
@@ -43,7 +44,8 @@ class MyApp extends StatelessWidget {
           ),
         ).apply(fontFamily: 'Avenir'),
       ),
-      home: SplashScreen(),
+      home: ArticleScreen(),
+      // home: SplashScreen(),
       // home: Stack(
       //   children: [
       //     Positioned.fill(child: const HomeScreen()),
