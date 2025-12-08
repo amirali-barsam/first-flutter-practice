@@ -4,21 +4,21 @@ import 'package:test/data.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+// class Home extends StatelessWidget {
+//   const Home({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(child: const HomeScreen()),
-          Positioned(left: 0, right: 0, bottom: 0, child: BottomNavBarItem()),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Stack(
+//         children: [
+//           Positioned.fill(child: const HomeScreen()),
+//           Positioned(left: 0, right: 0, bottom: 0, child: BottomNavBarItem()),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

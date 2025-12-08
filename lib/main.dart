@@ -2,8 +2,10 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:test/article.dart';
+import 'package:test/bottom_navigator.dart';
 import 'package:test/home.dart';
 import 'package:test/profile.dart';
+import 'package:test/search.dart';
 import 'package:test/splash.dart';
 
 void main() {
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
           ),
         ).apply(fontFamily: 'Avenir'),
       ),
-      home: ProfileScreen(),
+      home: MainScreen(),
       // home: SplashScreen(),
       // home: Stack(
       //   children: [
@@ -53,6 +55,37 @@ class MyApp extends StatelessWidget {
       //     Positioned(left: 0, right: 0, bottom: 0, child: _BottomNavBarItem()),
       //   ],
       // ),
+    );
+  }
+}
+
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  int pageIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      extendBody: true, // این خط طلاییه! فاصله پایین body رو حذف می‌کنه
+      body: IndexedStack(
+        index: pageIndex,
+        children: [
+          HomeScreen(),
+          ArticleScreen(),
+          SearchScreen(),
+          ProfileScreen(),
+        ],
+      ),
+      bottomNavigationBar: BottomNavBarCustom(
+        currentIndex: pageIndex,
+        onTap: (index) => setState(() => pageIndex = index),
+      ),
     );
   }
 }
